@@ -13,4 +13,397 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--Inter-Variable), sans-serif;
+  font-variation-settings: 'wght' var(--card-normal-weight);
+  background-image: var(--background-image);
+  background-size: cover;
+  background-attachment: fixed;
+  padding-block-end: 100px;
+}
+
+.header {
+  font-family: var(--PressStart2P-Regular), fantasy;
+  font-variation-settings: 'wght' var(--card-normal-weight);
+  text-transform: uppercase;
+  background-color: var(--background-color);
+  border: 2px solid var(--accent-color);
+  display: grid;
+  margin-block: 100px;
+  margin-inline: clamp(0px, calc(370 * (100vw - 375px) / 1065), 370px);
+  padding-block: clamp(120px, calc(120px + 8 * (100vw - 375px) / 1065), 128px);
+  padding-inline: clamp(14px, calc(14px + 106.5 * (100vw - 375px) / 1065), 120.5px);
+  max-inline-size: 700px;
+}
+
+.title-group {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+}
+
+.page-title {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  padding-block-end: 20px;
+}
+
+.page-subtitle {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);  
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+/*  КАРТОЧКИ  */
+.card {
+  background-color: var(--background-color);
+  border: 2px solid var(--accent-color);
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-variation-settings: 'wght' var(--card-bold-weight);
+  font-size: 18px;
+  border-block-end: 2px solid var(--accent-color);
+  line-height: 1.17;
+  padding-inline-start: 10px;
+  /*margin-block-start: clamp(3px, calc(4px - 1 * (100vw - 375px) / 1065), 4px);
+  /*margin-block-end: clamp(3px, calc(6px - 3 * (100vw - 375px) / 1065), 6px);*/
+  /*padding-block-end: clamp(5px, calc(6px - 5 * (100vw - 375px) / 1065), 6px);*/
+  padding-block-end: 5px;
+  padding-inline-end: clamp(10px, calc(10px + 14 * (100vw - 375px) / 1065), 24px);
+  margin-top: 5px;
+}
+
+.watermarked-image {
+  position: relative;
+  inline-size: 100%;
+  overflow: hidden;
+}
+
+.image {
+  display: block;
+  inline-size: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 0;
+  aspect-ratio: 1/1;
+}
+
+.watermark {
+  position: absolute;
+  z-index: 1;
+  font-family: var(--PressStart2P-Regular);
+  font-variation-settings: "wght" var(--card-normal-weight);
+  font-size: 14px;
+  top: 25px;
+  right: clamp(13px, calc(13px + 12 * (100vw - 375px) / 1065), 25px);
+  mix-blend-mode: hard-light;
+  opacity: 0.5;
+  -webkit-text-stroke: 1px var(--text-shadow-color);
+  line-height: 100%;
+}
+
+@supports (-webkit-text-stroke: 1px var(--text-shadow-color)) {
+  .watermark {
+    -webkit-text-stroke: 1px var(--text-shadow-color); text-shadow: none;
+  }
+}
+
+.image-saturate{
+  filter: saturate(160%);
+}
+
+.image-hue {
+  filter: hue-rotate(90deg);
+}
+
+.image-greyscale {
+  filter: grayscale(0.5);
+}
+
+.image-sepia {
+  filter: sepia(45%);
+}
+
+.image-multi-filters {
+  filter: contrast(130%) invert(0.9) saturate(20%);
+}
+
+.image-blur {
+  filter: blur(0.3rem);
+}
+
+.image-brightness {
+  filter: brightness(110%);
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  row-gap: 27px;
+  padding-inline: 25px;
+  padding-block-start: 25px;
+  border-block-start: 2px solid var(--accent-color);
+  line-height: 21px;
+  letter-spacing: 0;
+}
+/*  КАРТОЧКИ  END  */
+
+/*  КНОПКИ КАРТОЧКИ  */
+.button {
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--background-color);
+  border: 2px solid var(--accent-color);
+  cursor: pointer;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  inset: 0;
+  transform-origin: left;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+.button__text {
+  font-family: var(--PressStart2P-Regular), fantasy;
+  font-size: 14px;
+  font-variation-settings: var(--card-normal-weight);
+  position: relative;
+  z-index: 1;
+  color: var(--background-color);
+  mix-blend-mode: difference;
+  text-align: center;
+  line-height: 90%;
+}
+
+.card-like-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.card__like-button {
+  padding-block: 8px;
+  margin-inline-end: 25px;
+  margin-block: 25px;
+  align-self: flex-end;
+  inline-size: 130px;
+  block-size: 38px;
+}
+
+.card__like-button:focus,
+.dialog__button-open:focus {
+  outline: none;
+  animation: box-shadow 0.3s ease;
+}
+
+.card__icon-button {
+  background-color: var(--background-color);
+  border: none;
+  block-size: 36px;
+  align-self: center;
+  padding: 0;
+  margin-block-start: 2px;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--accent-color);
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.core {
+  fill: transparent;
+  transition-delay: 0.03s;
+  transition-duration: 0.3s;
+}
+
+.like-icon:hover .core {
+  fill: var(--contour-color);
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+}
+
+.main-body {
+  fill: transparent;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--contour-color);
+  transition-delay: 0.05s;
+  transition-duration: 0.3s;
+}
+
+.like-icon:active .core {
+  fill: var(--animation-fill-color);
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+}
+
+.like-icon:active .main-body {
+  fill: var(--animation-fill-color);
+  transition-delay: 0.05s;
+  transition-duration: 0.3s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--animation-fill-color);
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color);
+  transition-delay: 0.05s;
+  transition-duration: 0.3s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--animation-fill-color);
+  transition-delay: 0.06s;
+  transition-duration: 0.3s;
+}
+
+.is-liked .heart {
+  animation-name: heart-pulse;
+  animation-duration: 0.3s;
+  animation-delay: 0.1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+}
+
+.is-liked .sparks {
+  animation-name: heart-sparks;
+  animation-duration: 0.3s;
+  animation-delay: 0.3s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+}
+
+
+/*  МОДАЛЬНОЕ ОКНО  */
+.dialog::backdrop {
+  background-color: rgb(0 0 0 / 75%);
+}
+
+.dialog__button-open {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid var(--accent-color);
+  padding-block: 15px;
+  padding-inline-start: 19px;
+  padding-inline-end: 21px;
+  gap: 8px;
+}
+
+.floppy-icon {
+  inline-size: 28px;
+  mix-blend-mode: difference;
+  position: relative;
+  z-index: 2;
+  color: var(--background-color);
+  fill: white;
+}
+
+@media (width > 1000px) {
+  .dialog__button-open {
+    flex-direction: row;
+  }
+
+  .floppy-icon {
+    inline-size: 21px;
+  }
+}
+
+.dialog {
+  border: 2px solid var(--accent-color);
+  opacity: 30%;
+  min-block-size: 191px;
+  max-inline-size: 357px;
+  padding: 0;
+}
+
+.dialog-save {
+  font-family: var(--PressStart2P-Regular), fantasy;
+  font-variation-settings: 'wght' var(--card-normal-weight);
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 150%;
+  padding: 26px 40px;
+  display: grid;
+  grid-template-rows: 1fr min-content;
+  row-gap: 30px;
+  grid-template-columns: 0.3fr 1fr;
+}
+
+.dialog-icon {
+  inline-size: 39px;
+  align-self: center;
+  margin-inline-end: 20px;
+}
+
+.dialog-button {
+  block-size: 38px;
+  grid-row: 2;
+  grid-column: 1/3;
+  text-transform: uppercase;
+}
+
+
+@media (width <= 375px) {
+  .header {
+    inline-size: 100%;
+  }
+
+  .card {
+    inline-size: 100%;
+  }
+
+  .dialog {
+    max-inline-size: 341px;
+  }
+}
+
+@media (min-width: 375px) {
+  .card { 
+    inline-size: clamp(100%, 48.4722vw, 698px);
+  }
+}
+@media (min-width: 1440px) {
+  .card {
+    inline-size: 700px;
+  }
+  .card__icon-button {
+    margin-block-start: 4px;
+  }
+
+  .dialog-save {
+    padding: 29px 30px;
+    grid-template-columns: 0.2fr 1fr;
+  }
 }
