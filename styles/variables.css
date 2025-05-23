@@ -1,7 +1,7 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
-    --inter-variable: 'Inter-Variable';
-    --pressStart2P-regular: 'PressStart2P-Regular';
+    --main-font: 'Inter-Variable';
+    --accent-font: 'PressStart2P-Regular';
     --card-bold-weight: 700;
     --card-normal-weight: 400;
     --background-image: repeating-linear-gradient(to right, #d3d3d3, #d3d3d3 2px, transparent 2px, transparent 4px),

@@ -13,7 +13,7 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--inter-variable), sans-serif;
+  font-family: var(--main-font), sans-serif;
   font-variation-settings: 'wght' var(--card-normal-weight);
   background-image: var(--background-image);
   background-size: cover;
@@ -24,7 +24,7 @@
 }
 
 .header {
-  font-family: var(--pressStart2P-regular), fantasy;
+  font-family: var(--accent-font), fantasy;
   text-transform: uppercase;
   background-color: var(--background-color);
   border: 2px solid var(--accent-color);
@@ -98,14 +98,17 @@
 .watermark {
   position: absolute;
   z-index: 1;
-  font-family: var(--pressStart2P-regular), fantasy;
+  font-family: var(--accent-font), fantasy;
   font-weight: 400;
   font-size: 14px;
   top: 25px;
   right: clamp(13px, calc(13px + 12 * (100vw - 375px) / 1065), 25px);
   mix-blend-mode: hard-light;
   opacity: 0.5;
-  text-shadow: 1px var(--text-shadow-color);
+  text-shadow: 1px 0 var(--text-shadow-color), 
+  0 1px var(--text-shadow-color), 
+  -1px 0 var(--text-shadow-color),
+  0 -1px var(--text-shadow-color);
   line-height: 100%;
 }
 
@@ -182,7 +185,7 @@
 }
 
 .button__text {
-  font-family: var(--pressStart2P-regular), fantasy;
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
   font-weight: 400;
   position: relative;
@@ -278,7 +281,7 @@
 }
 
 .dialog-save {
-  font-family: var(--pressStart2P-regular), fantasy;
+  font-family: var(--accent-font), fantasy;
   font-weight: 400;
   font-size: 14px;
   text-transform: uppercase;
